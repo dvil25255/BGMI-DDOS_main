@@ -29,37 +29,13 @@ bot.on('message', (msg) => {
   logActivity(msg);
 
   if (command === '/start') {
-    const name = msg.from.first_name || 'Sammi';
-
     bot.sendMessage(
       chatId,
-      `╔══════════════════════════╗
-        ⚡ 𝙎𝘼𝙈𝙈𝙄 ⚡
-╚══════════════════════════╝
-
-🟢 BOT ONLINE
-
-✨ 𝙎𝘼𝙈𝙈𝙄 • 𝙋𝘼𝙉𝙀𝙇 ✨
-
-━━━━━━━━━━━━━━━━━━━━
-
-👤 User: ${name}
-🆔 ID: ${msg.from.id}
-
-━━━━━━━━━━━━━━━━━━━━
-
-⚡ /mix [host] [time] [thread] [rate]
-
-━━━━━━━━━━━━━━━━━━━━
-
-📊 Status: ONLINE
-⚙️ Version: v2.0`
+      'Bot is online ✅\n\n/mix [host] [time] [thread] [rate]'
     )
       .then(() => console.log('START reply sent'))
       .catch(err => console.error('START reply error:', err.message));
-
     return;
-  }
   }
 
   if (command === '/test') {
@@ -79,7 +55,6 @@ bot.on('message', (msg) => {
   if (command.startsWith('/mix')) {
     // Mengekstrak argumen dari pesan
     const args = command.split(' ');
-    const url = args[1];
     const time = args[2];
     const thread = args[3];
     const rate = args[4];
