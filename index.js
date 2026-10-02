@@ -29,12 +29,35 @@ bot.on('message', (msg) => {
   logActivity(msg);
 
   if (command === '/start') {
+    const name = msg.from.first_name || 'Sammi';
+
     bot.sendMessage(
       chatId,
-      'Bot is online ✅\n\n/mix [host] [time] [thread] [rate]'
+      `╔══════════════════════════╗
+        ⚡ 𝙎𝘼𝙈𝙈𝙄 ⚡
+╚══════════════════════════╝
+
+🟢 BOT ONLINE
+
+✨ 𝙎𝘼𝙈𝙈𝙄 • 𝙋𝘼𝙉𝙀𝙇 ✨
+
+━━━━━━━━━━━━━━━━━━━━
+
+👤 User: ${name}
+🆔 ID: ${msg.from.id}
+
+━━━━━━━━━━━━━━━━━━━━
+
+⚡ /mix [host] [time] [thread] [rate]
+
+━━━━━━━━━━━━━━━━━━━━
+
+📊 Status: ONLINE
+⚙️ Version: v2.0`
     )
       .then(() => console.log('START reply sent'))
       .catch(err => console.error('START reply error:', err.message));
+
     return;
   }
 
