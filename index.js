@@ -294,3 +294,13 @@ console.log('🟢 BOT ONLINE — ' + CONFIG.version);
 console.log('📡 Listening...\n');
 console.log('Modes: WEB + IP');
 console.log('Backend log: ON\n');
+
+const http = require("http");
+const PORT = process.env.PORT || 3000;
+
+http.createServer((req, res) => {
+  res.writeHead(200, {"Content-Type": "text/plain"});
+  res.end("SAMMI BOT ONLINE");
+}).listen(PORT, "0.0.0.0", () => {
+  console.log(`🌐 HTTP server listening on port ${PORT}`);
+});
