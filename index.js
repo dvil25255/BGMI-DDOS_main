@@ -47,7 +47,7 @@ bot.on("polling_error", (error) => {
     return;
   }
   if (code === "ETELEGRAM" && msg.includes("409")) {
-    console.error("[BOT] Another instance running — pkill -f node");
+    // 409 conflict — silent (Render duplicate instance ya Termux bot)
     return;
   }
   if (code === "EFATAL" && (msg.includes("ENOTFOUND") || msg.includes("EAI_AGAIN"))) {
